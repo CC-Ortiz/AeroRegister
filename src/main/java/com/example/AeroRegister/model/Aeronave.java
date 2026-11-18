@@ -1,64 +1,63 @@
 package com.example.AeroRegister.model;
 
-import java.sql.Date;
-
+/**
+ * Representa un registro de aeronave del archivo oficial de matrículas vigentes.
+ * Los ocho atributos se conservan como texto para no perder valores como
+ * "SIN INFORMACION" en la fecha de inscripción.
+ */
 public class Aeronave {
-    private String matricula;
-    private String tipo_matricula;
-    private String estado_de_matricula;
-    private Date fecha_de_registro;
-    private String fabricante;
-    private String modelo;
-    private String numero_de_serie;
-    private String titularidad;
-    
 
-    public Aeronave(String matricula, String tipo_matricula ,String fabricante, String modelo, String numero_de_serie, String titularidad, String estado_de_matricula, Date fecha_de_registro){
+    private final String matricula;
+    private final String tipoMatricula;
+    private final String estadoMatricula;
+    private final String fechaInscripcion;
+    private final String fabricante;
+    private final String modelo;
+    private final String numeroSerie;
+    private final String titularidadExplotacion;
+
+    public Aeronave(String matricula, String tipoMatricula, String estadoMatricula,
+                    String fechaInscripcion, String fabricante, String modelo,
+                    String numeroSerie, String titularidadExplotacion) {
         this.matricula = matricula;
-        this.tipo_matricula = tipo_matricula;
-        this.estado_de_matricula = estado_de_matricula;
-        this.fecha_de_registro = fecha_de_registro;
+        this.tipoMatricula = tipoMatricula;
+        this.estadoMatricula = estadoMatricula;
+        this.fechaInscripcion = fechaInscripcion;
         this.fabricante = fabricante;
         this.modelo = modelo;
-        this.numero_de_serie = numero_de_serie;
-        this.titularidad = titularidad;
+        this.numeroSerie = numeroSerie;
+        this.titularidadExplotacion = titularidadExplotacion;
     }
 
-    public void UpdateAeronave(String estado_de_matricula, Date fecha_de_registro, String titularidad){
-        this.estado_de_matricula = estado_de_matricula;
-        this.fecha_de_registro = fecha_de_registro;
-        this.titularidad = titularidad;
-    }
-
-    public String getMatricula(){
+    public String getMatricula() {
         return matricula;
     }
 
-    public String getTipo_matricula(){
-        return tipo_matricula;
+    public String getTipoMatricula() {
+        return tipoMatricula;
     }
 
-    public String getEstadoMatricula(){
-        return estado_de_matricula;
+    public String getEstadoMatricula() {
+        return estadoMatricula;
     }
 
-    public Date getFechaRegistro(){
-        return fecha_de_registro;
+    public String getFechaInscripcion() {
+        return fechaInscripcion;
     }
 
-    public String getFabricante(){
+    public String getFabricante() {
         return fabricante;
     }
 
-    public String getModelo(){
+    public String getModelo() {
         return modelo;
     }
 
-    public String getNumeroSerie(){
-        return numero_de_serie;
+    public String getNumeroSerie() {
+        return numeroSerie;
     }
 
-    public String getTitularidad(){
-        return titularidad;
+    public String getTitularidadExplotacion() {
+        return titularidadExplotacion;
     }
 }
