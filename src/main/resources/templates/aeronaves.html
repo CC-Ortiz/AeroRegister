@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeroRegistro - Aeronaves</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+            background: #f4f6f9;
+        }
+
+        h1 {
+            color: #17365d;
+        }
+
+        .total {
+            background: white;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background: #17365d;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Registro de aeronaves</h1>
+
+    <div class="total">
+        Total de aeronaves:
+        <strong th:text="${totalAeronaves}">0</strong>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Matrícula</th>
+                <th>Fabricante</th>
+                <th>Modelo</th>
+                <th>Tipo de matrícula</th>
+                <th>Estado de matrícula</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="aeronave : ${aeronaves}">
+                <td th:text="${aeronave.numeroMatricula}"></td>
+                <td th:text="${aeronave.marcaFabricante}"></td>
+                <td th:text="${aeronave.modelo}"></td>
+                <td th:text="${aeronave.tipoMatricula}"></td>
+                <td th:text="${aeronave.estadoMatricula}"></td>
+            </tr>
+
+            <tr th:if="${#lists.isEmpty(aeronaves)}">
+                <td colspan="5">No hay aeronaves registradas.</td>
+            </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
